@@ -86,6 +86,9 @@ class EleventyVue {
     }
     let bundle = await rollup.rollup({
       input: input,
+      manualChunks: (id) => {
+        return id.split('?')[0].substr(this.workingDir.length + 1);
+      },
       plugins: [
         rollupPluginCssOnly({
           output: (styles, styleNodes) => {
