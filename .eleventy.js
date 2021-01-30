@@ -74,9 +74,9 @@ module.exports = function(eleventyConfig, configGlobalOptions = {}) {
     },
     compile: function(str, inputPath) {
       return async (data) => {
-        let vueComponent = eleventyVue.getComponent(data.page.inputPath);
+        let vueComponent = eleventyVue.getComponent(data.page.inputPath || inputPath);
 
-        let componentName = eleventyVue.getJavaScriptComponentFile(data.page.inputPath);
+        let componentName = eleventyVue.getJavaScriptComponentFile(data.page.inputPath || inputPath);
         cssManager.addComponentForUrl(componentName, data.page.url);
 
         let vueMixin = {
