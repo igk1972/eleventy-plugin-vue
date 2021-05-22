@@ -34,6 +34,7 @@ class EleventyVue {
     this.rollupPluginVueOptions = lodashMerge({
       css: false,
       template: {
+        prettify: false,
         optimizeSSR: true
       }
       // compilerOptions: {} // https://github.com/vuejs/vue/tree/dev/packages/vue-template-compiler#options
